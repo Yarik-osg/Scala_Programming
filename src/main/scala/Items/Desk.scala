@@ -13,7 +13,7 @@ final case class Desk(cells: Map[Cell, Piece]) {
 
   val isFull: Boolean = self.cells.size == 9
 
-  val unoccupiedcells: List[Cell] = (Cell.All.toSet -- self.cells.keySet).toList.sortBy(_.value)
+  val unoccupiedCells: List[Cell] = (Cell.All.toSet -- self.cells.keySet).toList.sortBy(_.value)
 
   def updated(cell: Cell, piece: Piece): Desk = Desk(self.cells.updated(cell, piece))
 }

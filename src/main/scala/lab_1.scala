@@ -21,7 +21,6 @@ object lab_1 extends App {
     } yield ()).exitCode
 
   val choosePlayerPiece: ZIO[Console, IOException, Piece] =
-//  : URIO[Console, Piece]
     for {
       input <- putStr("Do you want be X or O?: ") *> getStrLn.orDie
       piece <- ZIO.fromOption(Piece.make(input)) <> (putStrLn("Invalid input") *> choosePlayerPiece)
@@ -33,14 +32,12 @@ object lab_1 extends App {
   }
 
   def programLoop(state: State): ZIO[Random with Console, IOException, Unit] =
-//  : URIO[Random with Console, Unit] =
     state match {
       case state@Ongoing(desk, _, _) => drawDesk(desk) *> step(state).flatMap(programLoop)
       case Over(desk) => drawDesk(desk)
     }
 
   def drawDesk(desk: Desk): ZIO[Console, IOException, Unit] =
-//  : URIO[Console, Unit]
     putStrLn {
       Cell.All
         .map(cell => desk.cells.get(cell) -> cell.value)
@@ -61,12 +58,10 @@ object lab_1 extends App {
     } yield nextState
 
   def getComputerMove(desk: Desk):  ZIO[Console with Random, IOException, Cell] =
-//  : URIO[Random with Console, Cell] =
-    nextIntBounded(desk.unoccupiedcells.size)
-      .map(desk.unoccupiedcells(_)).zipLeft(putStrLn("Waiting for computer`s move, please press Enter...") <* getStrLn.orDie)
+    nextIntBounded(desk.unoccupiedCells.size)
+      .map(desk.unoccupiedCells(_)).zipLeft(putStrLn("Waiting for computer`s move, please press Enter...") <* getStrLn.orDie)
 
   def getPlayerMove(desk: Desk): ZIO[Console, IOException, Cell] =
-//  : URIO[Console, Cell] =
     for{
       input <- putStr("What`s your next move? (1-9): " ) *> getStrLn.orDie
       tmpCell <- ZIO.fromOption(Cell.make(input)) <> ( putStrLn("Invalid input") *> getPlayerMove(desk))
@@ -75,7 +70,6 @@ object lab_1 extends App {
     } yield cell
 
   def takeField(state: State.Ongoing, cell: Cell): ZIO[Console, IOException, State] =
-//  : URIO[Console, State] =
     for {
       updatedDesk <- ZIO.succeed(state.desk.updated(cell, state.turn))
       updatedTurn <- ZIO.succeed(state.turn.next)
