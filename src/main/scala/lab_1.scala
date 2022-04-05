@@ -51,7 +51,6 @@ object lab_1 extends App {
     }
 
   def step(state: State.Ongoing): ZIO[Random with Console, IOException, State] =
-//  : URIO[Random with Console, State] =
     for {
       nextMove <- if (state.isComputerTurn) getComputerMove(state.desk) else getPlayerMove(state.desk)
       nextState <- takeField(state, nextMove)
