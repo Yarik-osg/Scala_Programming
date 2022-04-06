@@ -3,23 +3,23 @@ package Items
 class Cell(val value: Int)
 
 object Cell {
-  final case object upLeft extends Cell(1)
+  object upLeft extends Cell(1)
 
-  final case object Up extends Cell(2)
+  object Up extends Cell(2)
 
-  final case object upRight extends Cell(3)
+  object upRight extends Cell(3)
 
-  final case object Left extends Cell(4)
+  object Left extends Cell(4)
 
-  final case object Middle extends Cell(5)
+  object Middle extends Cell(5)
 
-  final case object Right extends Cell(6)
+  object Right extends Cell(6)
 
-  final case object downLeft extends Cell(7)
+  object downLeft extends Cell(7)
 
-  final case object Down extends Cell(8)
+  object Down extends Cell(8)
 
-  final case object downRight extends Cell(9)
+  object downRight extends Cell(9)
 
   def make(value: String): Option[Cell] = value match {
     case "1" => Some(upLeft)
