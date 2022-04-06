@@ -2,7 +2,7 @@ package Items
 
 import zio._
 
-final case class Desk(cells: Map[Cell, Piece]) {
+ case class Desk(cells: Map[Cell, Piece]) {
   self =>
   def cellIsNotFree(cell: Cell): Boolean = self.cells.contains(cell)
 
