@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccb8a265-654b-4722-908e-b59585fe90f4" name="Changes" comment="fixes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/Items/Result.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Items/Result.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/lab_1.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/lab_1.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +116,8 @@
       <updated>1649183402821</updated>
       <workItem from="1649183404325" duration="2774000" />
       <workItem from="1649186495935" duration="896000" />
-      <workItem from="1649187422624" duration="4925000" />
+      <workItem from="1649187422624" duration="6600000" />
+      <workItem from="1649234239560" duration="6668000" />
     </task>
     <task id="LOCAL-00001" summary="deleted">
       <created>1649183850648</created>
@@ -136,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649192008736</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fixes">
+      <created>1649192687637</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1649192687637</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

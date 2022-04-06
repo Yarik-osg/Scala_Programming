@@ -1,6 +1,6 @@
 package Items
 
-sealed abstract class Cell(val value: Int)
+class Cell(val value: Int)
 
 object Cell {
   final case object upLeft extends Cell(1)

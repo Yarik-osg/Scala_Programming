@@ -6,7 +6,7 @@ import zio.random._
 
 import java.io.IOException
 
-object lab_1 extends App {
+object lab_1 extends zio.App {
 
   def run(args: List[String]): URIO[ZEnv, ExitCode] = (
     for {
@@ -53,7 +53,7 @@ object lab_1 extends App {
   def step(state: State.Ongoing): ZIO[Random with Console, IOException, State] =
     for {
       nextMove <- if (state.isComputerTurn) getComputerMove(state.desk) else getPlayerMove(state.desk)
-      nextState <- takeField(state, nextMove)
+      nextState <- takeCell(state, nextMove)
     } yield nextState
 
   def getComputerMove(desk: Desk):  ZIO[Console with Random, IOException, Cell] =
@@ -68,7 +68,7 @@ object lab_1 extends App {
       else ZIO.succeed(tmpCell)
     } yield cell
 
-  def takeField(state: State.Ongoing, cell: Cell): ZIO[Console, IOException, State] =
+  def takeCell(state: State.Ongoing, cell: Cell): ZIO[Console, IOException, State] =
     for {
       updatedDesk <- ZIO.succeed(state.desk.updated(cell, state.turn))
       updatedTurn <- ZIO.succeed(state.turn.next)
