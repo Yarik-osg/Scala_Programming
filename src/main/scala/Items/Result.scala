@@ -10,8 +10,8 @@ sealed trait Result {
 }
 
 object Result {
-  final case class Win(piece: Piece) extends Result
+   case class Win(piece: Piece) extends Result
 
-  final case object Draw extends Result
+   case object Draw extends Result
 }
 

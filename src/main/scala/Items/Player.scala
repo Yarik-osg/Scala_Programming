@@ -3,7 +3,7 @@ package Items
 sealed trait Player
 
 object Player {
-  final case object Computer extends Player
+   case object Computer extends Player
 
-  final case object Human extends Player
+   case object Human extends Player
 }
