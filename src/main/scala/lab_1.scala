@@ -7,7 +7,6 @@ import zio.random._
 import java.io.IOException
 
 object lab_1 extends zio.App {
-
   def run(args: List[String]): URIO[ZEnv, ExitCode] = (
     for {
       playerPiece <- choosePlayerPiece
@@ -22,7 +21,7 @@ object lab_1 extends zio.App {
 
   val choosePlayerPiece: ZIO[Console, IOException, Piece] =
     for {
-      input <- putStr("Do you want be X or O?: ") *> getStrLn.orDie
+      input <- putStr("Do you want be X or O?: ") *> getStrLn
       piece <- ZIO.fromOption(Piece.make(input)) <> (putStrLn("Invalid input") *> choosePlayerPiece)
     } yield piece
 
@@ -58,11 +57,11 @@ object lab_1 extends zio.App {
 
   def getComputerMove(desk: Desk):  ZIO[Console with Random, IOException, Cell] =
     nextIntBounded(desk.unoccupiedCells.size)
-      .map(desk.unoccupiedCells(_)).zipLeft(putStrLn("Waiting for computer`s move, please press Enter...") <* getStrLn.orDie)
+      .map(desk.unoccupiedCells(_)).zipLeft(putStrLn("Waiting for computer`s move, please press Enter...") <* getStrLn)
 
   def getPlayerMove(desk: Desk): ZIO[Console, IOException, Cell] =
     for{
-      input <- putStr("What`s your next move? (1-9): " ) *> getStrLn.orDie
+      input <- putStr("What`s your next move? (1-9): " ) *> getStrLn
       tmpCell <- ZIO.fromOption(Cell.make(input)) <> ( putStrLn("Invalid input") *> getPlayerMove(desk))
       cell <- if (desk.cellIsNotFree(tmpCell)) putStrLn("That cell has already been used") *> getPlayerMove(desk)
       else ZIO.succeed(tmpCell)

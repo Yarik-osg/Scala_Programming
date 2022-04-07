@@ -10,7 +10,7 @@ sealed trait State {
 }
 
 object State {
-  final case class Ongoing(desk: Desk, whoIsCross: Player, turn: Piece) extends State
+   case class Ongoing(desk: Desk, whoIsCross: Player, turn: Piece) extends State
 
-  final case class Over(desk: Desk) extends State
+   case class Over(desk: Desk) extends State
 }
